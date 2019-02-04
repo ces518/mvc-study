@@ -10,5 +10,35 @@
     <body>
         <h1>Hello World!</h1>
         <p>This is the homepage!</p>
+    <script type="text/javascript">
+        var obj = {
+          number: 1,
+          show: function(){
+              console.log('obj = %d',this.number);
+          }
+        };
+        obj.show();
+
+
+        function obj2(){
+            var name = 'obj2';
+            console.dir('obj2 ='+this.name);
+        };
+
+        obj2();
+
+
+        function obj3(){
+            var my_name = 'obj3';
+            return {
+                show : function() {
+                    return my_name;
+                }
+            }
+        }
+
+        var obj_3 = new obj3();
+        console.log('obj3 = %s',obj_3.show());
+    </script>
     </body>
 </html>

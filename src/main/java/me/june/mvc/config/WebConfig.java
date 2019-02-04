@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
@@ -13,7 +14,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  * Only Controller Config
  */
 @Configuration
-@ComponentScan(useDefaultFilters = false, includeFilters = @ComponentScan.Filter(Controller.class),  basePackages = "me.june.mvc")
+@ComponentScan(basePackages = "me.june.mvc")
+/**
+ * Spring mvc 의 설정들을 편하게 할수있는 annotation
+ *
+ * DelegatingWebMvcConfiguration 을 import하여
+ * RequestMappingHandlerMapping , Adapter , Interceptor, MessageConverter 등 의 설정을 런타임시 설정해준다.
+ */
+@EnableWebMvc
 public class WebConfig {
 
     @Bean
